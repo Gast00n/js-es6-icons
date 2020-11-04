@@ -123,8 +123,8 @@ const container = $('.icons');
 
 //Stampa con Colore
 const coloredIcons = colorIcons(icons, colors);
-console.log(icons);
-// printIcons(coloredIcons, container);
+
+printIcons(coloredIcons, container);
 
 
 }); //END DOC READY
@@ -134,29 +134,29 @@ console.log(icons);
  * Funzione Custom per la stampa delle icone a video
  */
 
- function printIcons(icons,container) {
-     icons.forEach((icon) => {
-        const {family, prefix, name, color} = icon //Destructuring dell'Array di Oggetti contenente le info per le icone
-        
-        const html = 
-        `<div class="icon">
-            <i class="${family} ${prefix}${name}"
-            style="color: ${color}"></i>
-            <div class="title">${name}</div>
-        </div>`
+ function printIcons(icons, container) {
+     icons.forEach( (icon) => {
+         const {family, prefix, name, color} = icon //Destructuring dell'Array di Oggetti contenente le info per le icone
+         
+         const html = 
+         `<div class="icon">
+             <i class="${family} ${prefix}${name}"
+             style="color: ${color}"></i>
+             <div class="title">${name}</div>
+         </div>`
+    
+         container.append(html); //Stampa ciclica
 
-        container.append(html); //Stampa ciclica
-    });
+     });
  }
 
-
+ 
  /*************************************************************************
   * Funzione per Colorare le Icons
   */
  function colorIcons(icons, colors) {
-
+     
      const types = getType(icons);
-
      //Assegnazione colore
      const coloredIcons = icons.map((icon) => {
          const indexType = types.indexOf(icon.type);
@@ -164,27 +164,30 @@ console.log(icons);
          return {
              ...icon,
              color: colors[indexType]
-         }
-
+            }
+            
      });
 
- }
-
-
- /*************************************************************************
-  * Funzione per ottenere i Tipi di Icona
-  */
-
-  function getType(icons) {
-      const types = [];
-
-      icons.forEach( (icon)  => {
-          if (! types.includes(icon.type)) {
-              types.push(icon.type);
-          }
-
-      });
-
-      return types;
-  }
-
+     return coloredIcons;
+     
+    }
+    
+    
+    /*************************************************************************
+     * Funzione per ottenere i Tipi di Icona
+     */
+   
+     function getType(icons) {
+         const types = [];
+   
+         icons.forEach( (icon)  => {
+             if (! types.includes(icon.type)) {
+                 types.push(icon.type);
+             }
+   
+         });
+   
+         return types;
+     }
+    
+    
