@@ -122,8 +122,9 @@ const container = $('.icons');
 // printIcons(icons,container);
 
 //Stampa con Colore
-const coloredIcons = colorIcons(icons,colors);
-printIcons(coloredIcons, container);
+const coloredIcons = colorIcons(icons, colors);
+console.log(icons);
+// printIcons(coloredIcons, container);
 
 
 }); //END DOC READY
@@ -170,9 +171,6 @@ printIcons(coloredIcons, container);
  }
 
 
-
-
-
  /*************************************************************************
   * Funzione per ottenere i Tipi di Icona
   */
@@ -180,12 +178,13 @@ printIcons(coloredIcons, container);
   function getType(icons) {
       const types = [];
 
-      icons.forEach( icon  => {
+      icons.forEach( (icon)  => {
           if (! types.includes(icon.type)) {
               types.push(icon.type);
           }
 
       });
-      return types
+
+      return types;
   }
 

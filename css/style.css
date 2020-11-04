@@ -6,10 +6,9 @@
 
 .container {
     font-family: sans-serif;
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
-    background: #ddd;
 }
 
 /* Header Section */
@@ -36,7 +35,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 20px;
 }
 
 .search select {
@@ -48,16 +46,17 @@
 .icons {
     display: flex;
     flex-wrap: wrap;
+    flex-grow: 1;
+    padding: 20px;
+    background: #ddd;
+    align-content: flex-start;
 }
 
 .icons .icon {
-    display: flex;
-    flex-direction: column;
-    align-content: flex-start;
     width: calc(100%/6 - 20px);
     background: #fff;
     padding: 50px;
-    margin: 10px;
+    margin: 20px 10px;
     text-align: center;
     border-radius: 10px;
 }
