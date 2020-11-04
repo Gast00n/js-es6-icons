@@ -1,3 +1,13 @@
+/**
+ * 
+ * 
+ * FontIcons - Gestione eventi Javascript
+ * 
+ * 
+ */
+
+$(document).ready(function () {
+
 // Icon set
 const icons = [
     {
@@ -97,3 +107,31 @@ const icons = [
       family: 'fas',
     },
 ];
+
+//Icons container
+const container = $('.icons');
+
+//Stampa Icone sullo schermo
+printIcons(icons,container);
+
+
+}); //END DOC READY
+
+
+/**
+ * Funzione Custom per la stampa delle icone a video
+ */
+
+ function printIcons(icons,container) {
+     icons.forEach((icon) => {
+        const {family, prefix, name} = icon //Destructuring dell'Array di Oggetti contenente le info per le icone
+        
+        const html = 
+        `<div class="icon">
+            <i class="${family} ${prefix}${name}"></i>
+            <div class="title">${name}</div>
+        </div>`
+
+        container.append(html); //Stampa ciclica
+    });
+ }
