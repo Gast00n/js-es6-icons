@@ -135,3 +135,20 @@ printIcons(icons,container);
         container.append(html); //Stampa ciclica
     });
  }
+
+ /**
+  * Funzione per ottenere i Tipi di Icona
+  */
+
+  function getType(icons) {
+      const types = [];
+
+      icons.forEach((icon) => {
+          if (! types.include(icon.type)) {
+              types.push(icon.type);
+          }
+
+      });
+      return types
+  }
+
